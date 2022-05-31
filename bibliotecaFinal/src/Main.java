@@ -11,14 +11,7 @@ public class Main {
 
         System.out.println("******* WELCOME TO LEBRARY SYSTEM ******* ");
         while (true) {
-            System.out.print("----------------------------------------+\n" +
-                    "+               MENU                   +\n" +
-                    "+                                      +\n" +
-                    "+          [1] - RH                    +\n" +
-                    "+          [2] - STORAGE               +\n" +
-                    "+          [3] - BORROW                +\n" +
-                    "+          [0] - GET OUT               +\n" +
-                    "+-------------------------------------+ \n");
+            showPrincipalMenu();
             int firstMenu = sc.nextInt();
             if (firstMenu == 1) {
                 while(true) {
@@ -51,11 +44,13 @@ public class Main {
                         listOfEmployee.admit(new Employee(name, cpf, ctps, role, salary));
 
                     } else if (secondMenu == 2) {
-                        //listOfEmployee.dismiss(Employee.getName());
+                        System.out.println("Type the cpf that employee that you want research");
+                        String cpf = sc.next();
+                        listOfEmployee.dismiss(cpf);
                     } else if (secondMenu == 3) {
                         System.out.println("Type the cpf that employee that you want research");
                         String cpf = sc.next();
-                        listOfEmployee.lookForEmployee();
+                        listOfEmployee.lookForEmployee(cpf);
 
                     } else if (secondMenu == 4) {
                         listOfEmployee.displayStaff();
@@ -73,5 +68,16 @@ public class Main {
 
         }
         sc.close();
+    }
+
+    private static void showPrincipalMenu() {
+        System.out.print("----------------------------------------+\n" +
+                "+               MENU                   +\n" +
+                "+                                      +\n" +
+                "+          [1] - RH                    +\n" +
+                "+          [2] - STORAGE               +\n" +
+                "+          [3] - BORROW                +\n" +
+                "+          [0] - GET OUT               +\n" +
+                "+-------------------------------------+ \n");
     }
 }
